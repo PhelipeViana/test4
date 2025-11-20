@@ -34,5 +34,479 @@
     "name": "Coffee Table",
     "category": "Furniture",
     "price": 299
+  },
+  {
+    "id": 7,
+    "name": "Side Table",
+    "category": "Furniture",
+    "price": 149
+  },
+  {
+    "id": 8,
+    "name": "Floor Lamp",
+    "category": "Home",
+    "price": 129
+  },
+  {
+    "id": 9,
+    "name": "Table Lamp",
+    "category": "Home",
+    "price": 89
+  },
+  {
+    "id": 10,
+    "name": "Wireless Mouse",
+    "category": "Electronics",
+    "price": 49
+  },
+  {
+    "id": 11,
+    "name": "Mechanical Keyboard",
+    "category": "Electronics",
+    "price": 129
+  },
+  {
+    "id": 12,
+    "name": "Portable Charger",
+    "category": "Electronics",
+    "price": 39
+  },
+  {
+    "id": 13,
+    "name": "Smartwatch",
+    "category": "Electronics",
+    "price": 199
+  },
+  {
+    "id": 14,
+    "name": "Tablet Pro",
+    "category": "Electronics",
+    "price": 699
+  },
+  {
+    "id": 15,
+    "name": "Bluetooth Speaker",
+    "category": "Electronics",
+    "price": 149
+  },
+  {
+    "id": 16,
+    "name": "DSLR Camera",
+    "category": "Electronics",
+    "price": 1199
+  },
+  {
+    "id": 17,
+    "name": "Action Camera",
+    "category": "Electronics",
+    "price": 249
+  },
+  {
+    "id": 18,
+    "name": "External Hard Drive 2TB",
+    "category": "Electronics",
+    "price": 119
+  },
+  {
+    "id": 19,
+    "name": "SSD 1TB",
+    "category": "Electronics",
+    "price": 149
+  },
+  {
+    "id": 20,
+    "name": "Wi‑Fi Router",
+    "category": "Electronics",
+    "price": 99
+  },
+  {
+    "id": 21,
+    "name": "Monitor Stand",
+    "category": "Electronics",
+    "price": 59
+  },
+  {
+    "id": 22,
+    "name": "Gaming Chair",
+    "category": "Furniture",
+    "price": 399
+  },
+  {
+    "id": 23,
+    "name": "Bookshelf",
+    "category": "Furniture",
+    "price": 199
+  },
+  {
+    "id": 24,
+    "name": "Kitchen Knife Set",
+    "category": "Kitchen",
+    "price": 179
+  },
+  {
+    "id": 25,
+    "name": "Blender",
+    "category": "Kitchen",
+    "price": 89
+  },
+  {
+    "id": 26,
+    "name": "Toaster",
+    "category": "Kitchen",
+    "price": 49
+  },
+  {
+    "id": 27,
+    "name": "Espresso Machine",
+    "category": "Kitchen",
+    "price": 399
+  },
+  {
+    "id": 28,
+    "name": "Cutlery Set",
+    "category": "Kitchen",
+    "price": 59
+  },
+  {
+    "id": 29,
+    "name": "Bedding Set",
+    "category": "Home",
+    "price": 159
+  },
+  {
+    "id": 30,
+    "name": "Throw Pillow",
+    "category": "Home",
+    "price": 29
+  },
+  {
+    "id": 31,
+    "name": "Area Rug",
+    "category": "Home",
+    "price": 249
+  },
+  {
+    "id": 32,
+    "name": "Wall Art",
+    "category": "Home",
+    "price": 79
+  },
+  {
+    "id": 33,
+    "name": "Air Purifier",
+    "category": "Home",
+    "price": 199
+  },
+  {
+    "id": 34,
+    "name": "Yoga Mat",
+    "category": "Sports",
+    "price": 39
+  },
+  {
+    "id": 35,
+    "name": "Dumbbell Set",
+    "category": "Sports",
+    "price": 129
+  },
+  {
+    "id": 36,
+    "name": "Treadmill",
+    "category": "Sports",
+    "price": 999
+  },
+  {
+    "id": 37,
+    "name": "Bicycle",
+    "category": "Outdoors",
+    "price": 499
+  },
+  {
+    "id": 38,
+    "name": "Camping Tent",
+    "category": "Outdoors",
+    "price": 199
+  },
+  {
+    "id": 39,
+    "name": "Hiking Backpack",
+    "category": "Outdoors",
+    "price": 129
+  },
+  {
+    "id": 40,
+    "name": "Grill",
+    "category": "Outdoors",
+    "price": 299
+  },
+  {
+    "id": 41,
+    "name": "Patio Chair",
+    "category": "Outdoors",
+    "price": 89
+  },
+  {
+    "id": 42,
+    "name": "Winter Jacket",
+    "category": "Clothing",
+    "price": 199
+  },
+  {
+    "id": 43,
+    "name": "Running Shoes",
+    "category": "Clothing",
+    "price": 129
+  },
+  {
+    "id": 44,
+    "name": "Sunglasses",
+    "category": "Accessories",
+    "price": 89
+  },
+  {
+    "id": 45,
+    "name": "Leather Wallet",
+    "category": "Accessories",
+    "price": 49
+  },
+  {
+    "id": 46,
+    "name": "Watch Band",
+    "category": "Accessories",
+    "price": 39
+  },
+  {
+    "id": 47,
+    "name": "Phone Case",
+    "category": "Accessories",
+    "price": 19
+  },
+  {
+    "id": 48,
+    "name": "Smart Light Bulb",
+    "category": "Electronics",
+    "price": 29
+  },
+  {
+    "id": 49,
+    "name": "Video Doorbell",
+    "category": "Electronics",
+    "price": 179
+  },
+  {
+    "id": 50,
+    "name": "Robot Vacuum",
+    "category": "Home",
+    "price": 399
+  },
+  {
+    "id": 51,
+    "name": "Vacuum Cleaner",
+    "category": "Home",
+    "price": 249
+  },
+  {
+    "id": 52,
+    "name": "Iron",
+    "category": "Home",
+    "price": 69
+  },
+  {
+    "id": 53,
+    "name": "Sewing Machine",
+    "category": "Home",
+    "price": 199
+  },
+  {
+    "id": 54,
+    "name": "Baby Stroller",
+    "category": "Toys",
+    "price": 349
+  },
+  {
+    "id": 55,
+    "name": "Action Figure",
+    "category": "Toys",
+    "price": 24
+  },
+  {
+    "id": 56,
+    "name": "Puzzle Game",
+    "category": "Toys",
+    "price": 19
+  },
+  {
+    "id": 57,
+    "name": "Board Game",
+    "category": "Toys",
+    "price": 39
+  },
+  {
+    "id": 58,
+    "name": "Children's Book",
+    "category": "Books",
+    "price": 14
+  },
+  {
+    "id": 59,
+    "name": "Novel Bestseller",
+    "category": "Books",
+    "price": 24
+  },
+  {
+    "id": 60,
+    "name": "Cookbook",
+    "category": "Books",
+    "price": 29
+  },
+  {
+    "id": 61,
+    "name": "Power Drill",
+    "category": "Tools",
+    "price": 89
+  },
+  {
+    "id": 62,
+    "name": "Screwdriver Set",
+    "category": "Tools",
+    "price": 29
+  },
+  {
+    "id": 63,
+    "name": "Tool Chest",
+    "category": "Tools",
+    "price": 159
+  },
+  {
+    "id": 64,
+    "name": "Paint Roller",
+    "category": "Tools",
+    "price": 19
+  },
+  {
+    "id": 65,
+    "name": "Makeup Kit",
+    "category": "Beauty",
+    "price": 59
+  },
+  {
+    "id": 66,
+    "name": "Hair Dryer",
+    "category": "Beauty",
+    "price": 39
+  },
+  {
+    "id": 67,
+    "name": "Electric Toothbrush",
+    "category": "Beauty",
+    "price": 79
+  },
+  {
+    "id": 68,
+    "name": "Shampoo Set",
+    "category": "Beauty",
+    "price": 29
+  },
+  {
+    "id": 69,
+    "name": "Pet Bed",
+    "category": "Home",
+    "price": 59
+  },
+  {
+    "id": 70,
+    "name": "Pet Food Pack",
+    "category": "Home",
+    "price": 49
+  },
+  {
+    "id": 71,
+    "name": "Office Chair",
+    "category": "Furniture",
+    "price": 249
+  },
+  {
+    "id": 72,
+    "name": "Standing Lamp",
+    "category": "Home",
+    "price": 139
+  },
+  {
+    "id": 73,
+    "name": "Monitor 4K",
+    "category": "Electronics",
+    "price": 399
+  },
+  {
+    "id": 74,
+    "name": "Graphics Tablet",
+    "category": "Electronics",
+    "price": 249
+  },
+  {
+    "id": 75,
+    "name": "Microphone",
+    "category": "Electronics",
+    "price": 129
+  },
+  {
+    "id": 76,
+    "name": "Camera Lens",
+    "category": "Electronics",
+    "price": 599
+  },
+  {
+    "id": 77,
+    "name": "Projector",
+    "category": "Electronics",
+    "price": 499
+  },
+  {
+    "id": 78,
+    "name": "Streaming Device",
+    "category": "Electronics",
+    "price": 59
+  },
+  {
+    "id": 79,
+    "name": "Smart Thermostat",
+    "category": "Home",
+    "price": 199
+  },
+  {
+    "id": 80,
+    "name": "Security Camera",
+    "category": "Electronics",
+    "price": 99
+  },
+  {
+    "id": 81,
+    "name": "Wireless Earbuds",
+    "category": "Electronics",
+    "price": 129
+  },
+  {
+    "id": 82,
+    "name": "Keyboard Wrist Rest",
+    "category": "Accessories",
+    "price": 19
+  },
+  {
+    "id": 83,
+    "name": "Ceramic Dinnerware",
+    "category": "Kitchen",
+    "price": 79
+  },
+  {
+    "id": 84,
+    "name": "Wine Glasses",
+    "category": "Kitchen",
+    "price": 49
+  },
+  {
+    "id": 85,
+    "name": "Cheese Board",
+    "category": "Kitchen",
+    "price": 39
   }
 ]

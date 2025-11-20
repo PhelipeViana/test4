@@ -18,11 +18,6 @@ if (process.env.NODE_ENV !== 'test') {
     app.use(initialPath());
 }
 
-// Health Check
-app.get('/', (req, res) => {
-    res.send('Backend ativo! ' + Math.random());
-});
-
 // Routes
 app.use('/api/items', itemsRouter);
 app.use('/api/stats', statsRouter);

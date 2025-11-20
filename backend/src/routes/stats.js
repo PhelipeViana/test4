@@ -5,12 +5,10 @@ const router = express.Router();
 
 const DATA_PATH = path.join(process.cwd(), 'data/items.json');
 
-// cache em memória
 let statsCache = null;
 let lastCacheTime = 0;
 const TTL = 20_000;
 
-// função de cálculo
 async function computeStats() {
   const raw = await fs.readFile(DATA_PATH, 'utf-8');
   const items = JSON.parse(raw);
@@ -24,7 +22,6 @@ async function computeStats() {
   };
 }
 
-// limpar cache (para testes)
 function resetCache() {
   statsCache = null;
   lastCacheTime = 0;
@@ -35,7 +32,7 @@ router.get('/', async (req, res, next) => {
   try {
     const now = Date.now();
 
-    // usar cache se válido
+    // validate cache
     if (statsCache && now - lastCacheTime < TTL) {
       return res.json({ ...statsCache, cached: true });
     }
@@ -47,11 +44,10 @@ router.get('/', async (req, res, next) => {
 
     return res.json({ ...stats, cached: false });
   } catch (err) {
-    next(err); // <<< ESSENCIAL PARA 500
+    next(err);
   }
 });
 
-// exportar função para Jest limpar cache
 router.resetCache = resetCache;
 
 module.exports = router;

@@ -1,7 +1,6 @@
 const express = require('express');
 const fs = require('fs/promises');
 const path = require('path');
-const initialPath = require('initial-path');
 const router = express.Router();
 const DATA_PATH = path.join(process.cwd(), 'data/items.json');
 
@@ -39,8 +38,6 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
-
-
 // GET /api/items (list with search + pagination)
 router.get('/', async (req, res, next) => {
   try {
@@ -51,7 +48,7 @@ router.get('/', async (req, res, next) => {
     const fileData = await fs.readFile(DATA_PATH, 'utf8');
     let items = JSON.parse(fileData);
 
-    // Busca
+
     if (q) {
       const lower = q.toLowerCase();
       items = items.filter(i =>

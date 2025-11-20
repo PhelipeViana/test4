@@ -9,12 +9,6 @@ beforeEach(() => {
     jest.clearAllMocks();
 });
 
-//
-// =============================
-//   TESTES GET /api/items
-// =============================
-//
-
 describe('GET /api/items', () => {
 
     it('should return items (happy path)', async () => {
@@ -73,12 +67,6 @@ describe('GET /api/items', () => {
 });
 
 
-//
-// =============================
-//   TESTES GET /api/items/:id
-// =============================
-//
-
 describe('GET /api/items/:id', () => {
 
     it('should return a single item when it exists', async () => {
@@ -119,11 +107,6 @@ describe('GET /api/items/:id', () => {
 });
 
 
-//
-// =============================
-//       TESTES POST /items
-// =============================
-//
 
 describe('POST /api/items', () => {
 
@@ -164,13 +147,6 @@ describe('POST /api/items', () => {
     });
 
 });
-
-//
-// =============================
-//     TESTES GET /api/stats
-// =============================
-//
-
 
 
 describe('GET /api/stats', () => {
