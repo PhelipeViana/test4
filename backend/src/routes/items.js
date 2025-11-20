@@ -8,36 +8,48 @@ const DATA_PATH = path.join(process.cwd(), 'data/items.json');
 // Utility async
 async function readData() {
   const raw = await fs.readFile(DATA_PATH, 'utf-8');
+
   return JSON.parse(raw);
 }
 
-// GET /api/items
+// GET /api/items (list with search + pagination)
 router.get('/', async (req, res, next) => {
   try {
-    const data = await readData();
-    const { limit, q } = req.query;
-    let results = data;
+    const { q = '', page = 1, limit = 20 } = req.query;
+    const pageNum = parseInt(page);
+    const limitNum = parseInt(limit);
 
+    const fileData = await fs.readFile(DATA_PATH, 'utf8');
+    let items = JSON.parse(fileData);
+
+    // Busca
     if (q) {
-      const query = q.toLowerCase();
-      results = results.filter(item =>
-        (item.name || '').toLowerCase().includes(query)
+      const lower = q.toLowerCase();
+      items = items.filter(i =>
+        i.name.toLowerCase().includes(lower) ||
+        i.category?.toLowerCase().includes(lower)
       );
     }
 
-    if (limit) {
-      const limitNum = parseInt(limit, 10);
-      if (!isNaN(limitNum) && limitNum > 0) {
-        results = results.slice(0, limitNum);
-      }
-    }
+    const total = items.length;
 
-    initialPath();
-    res.json(results);
+    // Paginação
+    const start = (pageNum - 1) * limitNum;
+    const data = items.slice(start, start + limitNum);
+
+    res.json({
+      page: pageNum,
+      limit: limitNum,
+      total,
+      data
+    });
+
   } catch (err) {
+    err.status = 500;
     next(err);
   }
 });
+
 
 // GET /api/items/:id
 router.get('/', async (req, res, next) => {

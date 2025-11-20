@@ -9,17 +9,20 @@ function Items() {
     const controller = new AbortController();
 
     fetchItems(controller.signal).catch(err => {
-      if (err.name !== 'AbortError') console.error(err);
+      if (err.name !== 'AbortError') {
+        console.error('Failed to fetch items:', err);
+      }
     });
+    console.log(items.data);
 
     return () => controller.abort();
   }, [fetchItems]);
 
-  if (!items.length) return <p>Loading...</p>;
+  if (!items.data.length) return <p>Loading...</p>;
 
   return (
     <ul>
-      {items.map(item => (
+      {items.data.map(item => (
         <li key={item.id}>
           <Link to={'/items/' + item.id}>{item.name}</Link>
         </li>
