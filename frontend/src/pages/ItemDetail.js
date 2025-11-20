@@ -1,43 +1,58 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { apiGet } from '../api/client';
+import { Box } from '../components/box';
+import NotFound from './notFound';
+import Loading from '../components/loading';
+
 
 function ItemDetail() {
   const { id } = useParams();
-  const navigate = useNavigate();
+
   const [item, setItem] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
 
     async function loadItem() {
-
       try {
-        const json = await apiGet(`/api/items/${id}`, { signal: controller.signal });
-        setItem(json);
+        setLoading(true);
+
+        const json = await apiGet(`/api/items/${id}`, {
+          signal: controller.signal,
+        });
+
+        if (!json || !json.id) {
+          setNotFound(true);
+        } else {
+          setItem(json);
+        }
+
       } catch (err) {
-        // Se foi cancelamento → ignore
         if (err.name === 'AbortError') return;
-        alert('Failed to load item: ' + err.message);
-        // // Se item não existe → voltar para home
-        // navigate('/');
+        setNotFound(true);
+      } finally {
+        setLoading(false);
       }
     }
 
     loadItem();
 
-    // cleanup
     return () => controller.abort();
-  }, [id, navigate]);
+  }, [id]);
 
-  if (!item) return <p style={{ padding: 16 }}>Loading...</p>;
+  if (loading) return <Loading message="Carregando item..." />;
 
+  if (notFound) return <NotFound />;
+  if (!item) return null;
   return (
-    <div style={{ padding: 16 }}>
+    <Box>
       <h2>{item.name}</h2>
       <p><strong>Category:</strong> {item.category}</p>
       <p><strong>Price:</strong> ${item.price}</p>
-    </div>
+    </Box>
   );
 }
 
