@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { apiGet } from '../api/client';
 import { Box } from '../components/box';
 import NotFound from './notFound';
@@ -49,10 +49,21 @@ function ItemDetail() {
   if (!item) return null;
   return (
     <Box>
-      <h2>{item.name}</h2>
-      <p><strong>Category:</strong> {item.category}</p>
-      <p><strong>Price:</strong> ${item.price}</p>
+      <div class="card">
+        <div class="card-header">
+          <h2>{item.name}</h2>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{item.category}</h5>
+          <p class="card-text">
+            <strong>Price:</strong> ${item.price}
+          </p>
+          <Link to="/" class="btn btn-primary">Go Back</Link>
+        </div>
+      </div>
+
     </Box>
+
   );
 }
 
