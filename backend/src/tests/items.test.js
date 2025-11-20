@@ -1,14 +1,13 @@
 const request = require('supertest');
 const app = require('../app');
 const fs = require('fs/promises');
-const statsRouter = require('../routes/stats'); // para resetar cache
-// Mock filesystem
+const statsRouter = require('../routes/stats');
+
 jest.mock('fs/promises');
 
 beforeEach(() => {
     jest.clearAllMocks();
 });
-
 describe('GET /api/items', () => {
 
     it('should return items (happy path)', async () => {
@@ -22,7 +21,8 @@ describe('GET /api/items', () => {
         const res = await request(app).get('/api/items');
 
         expect(res.status).toBe(200);
-        expect(res.body).toEqual(fakeItems);
+        expect(res.body.data).toEqual(fakeItems);   // <--- FIX
+        expect(res.body.total).toBe(2);
         expect(fs.readFile).toHaveBeenCalledTimes(1);
     });
 
@@ -37,7 +37,10 @@ describe('GET /api/items', () => {
         const res = await request(app).get('/api/items?q=app');
 
         expect(res.status).toBe(200);
-        expect(res.body).toEqual([{ id: 1, name: 'Apple', price: 10 }]);
+        expect(res.body.data).toEqual([
+            { id: 1, name: 'Apple', price: 10 }
+        ]);  // <--- FIX
+        expect(res.body.total).toBe(1);
     });
 
     it('should limit items when limit parameter is provided', async () => {
@@ -52,7 +55,7 @@ describe('GET /api/items', () => {
         const res = await request(app).get('/api/items?limit=2');
 
         expect(res.status).toBe(200);
-        expect(res.body.length).toBe(2);
+        expect(res.body.data.length).toBe(2);  // <--- FIX
     });
 
     it('should return 500 when file read fails', async () => {
@@ -65,6 +68,7 @@ describe('GET /api/items', () => {
     });
 
 });
+
 
 
 describe('GET /api/items/:id', () => {
@@ -107,7 +111,6 @@ describe('GET /api/items/:id', () => {
 });
 
 
-
 describe('POST /api/items', () => {
 
     it('should create a new item (happy path)', async () => {
@@ -116,7 +119,7 @@ describe('POST /api/items', () => {
         ];
 
         fs.readFile.mockResolvedValue(JSON.stringify(initialItems));
-        fs.writeFile.mockResolvedValue(); // simular sucesso
+        fs.writeFile.mockResolvedValue();
 
         const newItem = { name: 'New', price: 999 };
 
@@ -152,10 +155,10 @@ describe('POST /api/items', () => {
 describe('GET /api/stats', () => {
 
     beforeEach(() => {
-        // limpar cache antes de cada teste
         if (statsRouter.resetCache) {
             statsRouter.resetCache();
         }
+
     });
 
     it('should return stats (happy path)', async () => {

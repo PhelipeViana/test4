@@ -56,8 +56,3 @@ npm start
 ```
 
 > The frontend proxies `/api` requests to `http://localhost:3001`.
-
-
-
-para executar os teste
-docker exec -it backend_node sh npm test
