@@ -56,3 +56,24 @@ npm start
 ```
 
 > The frontend proxies `/api` requests to `http://localhost:3001`.
+
+Phelipe PrintScrenn Solution
+<img width="1855" height="964" alt="image" src="https://github.com/user-attachments/assets/1267d3a6-fc29-4fc4-bf84-07a06bb032f5" />
+
+<img width="1792" height="546" alt="image" src="https://github.com/user-attachments/assets/a9338f41-be97-484a-aeb0-776f46161b26" />
+
+<img width="783" height="489" alt="image" src="https://github.com/user-attachments/assets/28c7fd30-1b72-463d-a767-0fda28cdfe1f" />
+<img width="1842" height="501" alt="image" src="https://github.com/user-attachments/assets/e6b3b2e5-9972-46c1-89fa-667b5f50f60e" />
+<img width="1869" height="956" alt="image" src="https://github.com/user-attachments/assets/6d186708-d2ec-4fc4-910d-c6219d8548d2" />
+<img width="1842" height="390" alt="image" src="https://github.com/user-attachments/assets/75f834f0-fba2-4469-a03e-98426b1eca03" />
+
+
+
+
+
+
+
+
+
+
+
