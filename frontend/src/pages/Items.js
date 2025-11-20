@@ -18,7 +18,7 @@ function Items() {
     return () => controller.abort();
   }, [fetchItems]);
 
-  if (!items.data.length) return <p>Loading...</p>;
+  if (!items.data?.length) return <p>Loading...</p>;
 
   return (
     <ul>
