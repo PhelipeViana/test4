@@ -8,23 +8,28 @@ function Items() {
   useEffect(() => {
     const controller = new AbortController();
 
-    fetchItems(controller.signal).catch(err => {
-      if (err.name !== 'AbortError') {
-        console.error('Failed to fetch items:', err);
+    async function load() {
+      try {
+        await fetchItems({ page: 1, limit: 20 }, controller.signal);
+      } catch (err) {
+        if (err.name !== 'AbortError') {
+          console.error(err);
+        }
       }
-    });
-    console.log(items.data);
+    }
 
+    load();
+    console.log(items);
     return () => controller.abort();
   }, [fetchItems]);
 
-  if (!items.data?.length) return <p>Loading...</p>;
+  if (!items.length) return <p>Loading...</p>;
 
   return (
     <ul>
-      {items.data.map(item => (
+      {items.map(item => (
         <li key={item.id}>
-          <Link to={'/items/' + item.id}>{item.name}</Link>
+          <Link to={`/items/${item.id}`}>{item.name}</Link>
         </li>
       ))}
     </ul>

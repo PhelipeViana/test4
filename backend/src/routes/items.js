@@ -11,6 +11,35 @@ async function readData() {
 
   return JSON.parse(raw);
 }
+// GET /api/items/:id
+router.get('/:id', async (req, res, next) => {
+  try {
+    const id = Number(req.params.id);
+
+    if (isNaN(id)) {
+      const err = new Error('Invalid id');
+      err.status = 400;
+      throw err;
+    }
+
+    const raw = await fs.readFile(DATA_PATH, 'utf8');
+    const items = JSON.parse(raw);
+
+    const item = items.find(i => Number(i.id) === id);
+
+    if (!item) {
+      const err = new Error('Item not found');
+      err.status = 404;
+      throw err;
+    }
+
+    res.json(item);
+  } catch (err) {
+    next(err);
+  }
+});
+
+
 
 // GET /api/items (list with search + pagination)
 router.get('/', async (req, res, next) => {
@@ -51,38 +80,6 @@ router.get('/', async (req, res, next) => {
 });
 
 
-// GET /api/items/:id
-router.get('/', async (req, res, next) => {
-  try {
-    const raw = await fs.readFile(DATA_PATH);
-    let items = JSON.parse(raw);
-
-    const { q, page = 1, limit = 20 } = req.query;
-
-    // filtro
-    if (q) {
-      items = items.filter(i => i.name.toLowerCase().includes(q.toLowerCase()));
-    }
-
-    // paginação
-    const p = Number(page);
-    const l = Number(limit);
-
-    const start = (p - 1) * l;
-    const end = start + l;
-
-    const paginated = items.slice(start, end);
-
-    res.json({
-      page: p,
-      total: items.length,
-      items: paginated
-    });
-
-  } catch (err) {
-    next(err);
-  }
-});
 
 
 // POST /api/items
